@@ -1,0 +1,107 @@
+.page-title .breadcrumb {
+    display: inline-block;
+}
+.button-create{
+    display: inline-block;
+    float: right;
+}
+.button-create li{
+    list-style: none;
+}
+.remove-image {
+    cursor: pointer;
+    opacity: 0;
+    background-color: #ccc;
+    border-radius: 50% !important;
+    display: block;
+    height: 30px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 30px;
+    -webkit-transition: all 0.15s ease-in-out 0s;
+    transition: all 0.15s ease-in-out 0s;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+.item-mul {
+    margin: 10px;
+    border-bottom: 1px solid #8c8c8c;
+    position: relative;
+    display: block;
+    padding-bottom: 15px;
+}
+.item-mul:last-child{
+    border: none;
+}
+.item-mul input{
+	margin-top:10px;
+}
+.item-mul:hover .remove-image {
+    opacity: 1;
+}
+.remove-image span {
+    width: 20px;
+    height: 1px;
+    background-color: #000;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.remove-image span:before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 20px;
+    background-color: #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+.click-add-item{
+	display:inline-block;
+	text-align: left;
+	background:#2196F3;
+	color: #fff;
+}
+.click-add-item .btn:hover{
+	color: #fff;
+}
+.file-preview {
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    width: auto;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+}
+.box-image {
+    margin-top: 15px;
+    position: relative;
+    width: 200px;
+    overflow: hidden;
+    height: 150px;
+    background: #F4F4F4;
+    border-radius: 10px;
+}
+.box-image img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 80%;
+    height: auto;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+.box-content-dash{
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    max-height: 400px;
+}
