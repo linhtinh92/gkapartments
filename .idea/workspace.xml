@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f3a516e-d9e7-411a-b0b4-9c5fcfe7fe17" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/database/migrations/2016_12_11_015849_create_shoppingcart_table.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/RepositoryServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.php" afterPath="$PROJECT_DIR$/config/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_02_25_035651_create_apartments_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_02_25_035651_create_apartments_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_02_25_035706_create_apartment_imgs_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_02_25_035706_create_apartment_imgs_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_02_25_035917_create_room_types_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_02_25_035917_create_room_types_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2017_02_25_035925_create_room_type_imgs_table.php" afterPath="$PROJECT_DIR$/database/migrations/2017_02_25_035925_create_room_type_imgs_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backend/menu.blade.php" afterPath="$PROJECT_DIR$/resources/views/backend/menu.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/backend/promotions/edit.blade.php" afterPath="$PROJECT_DIR$/resources/views/backend/promotions/edit.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -121,8 +110,8 @@
       <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/backend/promotions/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="101" column="131" lean-forward="false" selection-start-line="101" selection-start-column="131" selection-end-line="101" selection-end-column="131" />
+            <state relative-caret-position="699">
+              <caret line="103" column="36" lean-forward="false" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -677,12 +666,12 @@
       <updated>1487993793296</updated>
       <workItem from="1487993794761" duration="1835000" />
       <workItem from="1488036610405" duration="1546000" />
-      <workItem from="1488204394557" duration="5590000" />
+      <workItem from="1488204394557" duration="6194000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8971000" />
+    <option name="totallyTimeSpent" value="9575000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-112" width="1936" height="1056" extended-state="6" />
@@ -1121,8 +1110,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend/promotions/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="101" column="131" lean-forward="false" selection-start-line="101" selection-start-column="131" selection-end-line="101" selection-end-column="131" />
+        <state relative-caret-position="699">
+          <caret line="103" column="36" lean-forward="false" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
           <folding />
         </state>
       </provider>
