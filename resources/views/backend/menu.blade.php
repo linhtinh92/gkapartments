@@ -40,22 +40,22 @@
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-file-media position-left"></i> Brand Logo<span class="caret"></span>
+                    <i class="icon-file-media position-left"></i> About Us<span class="caret"></span>
                 </a>
 
                 <ul class="dropdown-menu width-250">
-                    <li><a href="{{route('admin.brandLogos.index')}}">List Brand Logo</a></li>
-                    <li><a href="{{route('admin.brandLogos.create')}}">Create Brand Logo</a></li>
+                    <li><a href="{{route('admin.abouts.index')}}">List About Us</a></li>
+                    <li><a href="{{route('admin.abouts.create')}}">Create About Us</a></li>
                 </ul>
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-map position-left"></i>Locations<span class="caret"></span>
+                    <i class="icon-map position-left"></i>Promotion<span class="caret"></span>
                 </a>
 
                 <ul class="dropdown-menu width-250">
-                    <li><a href="{{route('admin.locations.index')}}">List Location</a></li>
-                    <li><a href="{{route('admin.locations.create')}}">Create Location</a></li>
+                    <li><a href="{{route('admin.promotions.index')}}">List Promotion</a></li>
+                    <li><a href="{{route('admin.promotions.create')}}">Create Promotion</a></li>
                 </ul>
             </li>
             <li>

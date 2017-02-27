@@ -62,6 +62,24 @@ Route::group(['domain' => $subdomain, 'namespace' => 'Backend',], function ($rou
         $r->PUT ( '{id}/edit', [ 'namespace' => 'Backend', 'as' => 'admin.brandLogos.update', 'uses' => 'BrandLogosController@update' ] );
     } );
 
+    $router->group ( [ 'prefix' => '/abouts','middleware' => ['admin']], function ( $r ){
+        $r->get ( 'about', [ 'namespace' => 'Backend', 'as' => 'admin.abouts.index', 'uses' => 'AboutsController@index' ] );
+        $r->get ( 'create', [ 'namespace' => 'Backend', 'as' => 'admin.abouts.create', 'uses' => 'AboutsController@create' ] );
+        $r->post ( 'create', [ 'namespace' => 'Backend', 'as' => 'admin.abouts.store', 'uses' => 'AboutsController@store' ] );
+        $r->get ( 'delete/{id}', [ 'namespace' => 'Backend', 'as' => 'admin.abouts.destroy', 'uses' => 'AboutsController@destroy' ] );
+        $r->get ( '{id}/edit', [ 'namespace' => 'Backend', 'as' => 'admin.abouts.edit', 'uses' => 'AboutsController@edit' ] );
+        $r->PUT ( '{id}/edit', [ 'namespace' => 'Backend', 'as' => 'admin.abouts.update', 'uses' => 'AboutsController@update' ] );
+    } );
+
+    $router->group ( [ 'prefix' => '/promotions','middleware' => ['admin']], function ( $r ){
+        $r->get ( 'promotion', [ 'namespace' => 'Backend', 'as' => 'admin.promotions.index', 'uses' => 'PromotionsController@index' ] );
+        $r->get ( 'create', [ 'namespace' => 'Backend', 'as' => 'admin.promotions.create', 'uses' => 'PromotionsController@create' ] );
+        $r->post ( 'create', [ 'namespace' => 'Backend', 'as' => 'admin.promotions.store', 'uses' => 'PromotionsController@store' ] );
+        $r->get ( 'delete/{id}', [ 'namespace' => 'Backend', 'as' => 'admin.promotions.destroy', 'uses' => 'PromotionsController@destroy' ] );
+        $r->get ( '{id}/edit', [ 'namespace' => 'Backend', 'as' => 'admin.promotions.edit', 'uses' => 'PromotionsController@edit' ] );
+        $r->PUT ( '{id}/edit', [ 'namespace' => 'Backend', 'as' => 'admin.promotions.update', 'uses' => 'PromotionsController@update' ] );
+    } );
+
     $router->group ( [ 'prefix' => '/categories','middleware' => ['admin']], function ( $r ){
         $r->get ( 'categorie', [ 'namespace' => 'Backend', 'as' => 'admin.categories.index', 'uses' => 'CategoriesController@index' ] );
         $r->get ( 'create', [ 'namespace' => 'Backend', 'as' => 'admin.categories.create', 'uses' => 'CategoriesController@create' ] );

@@ -15,7 +15,10 @@ class CreateRoomTypeImgsTable extends Migration
 	{
 		Schema::create('room_type_imgs', function(Blueprint $table) {
             $table->increments('id');
-
+            $table->integer('room_type_id')->unsigned();
+            $table->foreign('room_type_id')->references('id')->on('room_types')->onDelete('cascade');
+            $table->string('title')->nullable();
+            $table->string('images')->nullable();
             $table->timestamps();
 		});
 	}

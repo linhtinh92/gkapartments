@@ -6,6 +6,6 @@
  * Time: 9:35 AM
  */
 return [
-    'domain'=>"gkaprtments.dev",
-    'subdomain'=>"admin.gkaprtments.dev"
+    'domain'=>"gkapartments.dev",
+    'subdomain'=>"admin.gkapartments.dev"
 ];

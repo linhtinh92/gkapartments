@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateApartmentsTable extends Migration
+class CreatePromotionsTable extends Migration
 {
 
 	/**
@@ -13,12 +13,15 @@ class CreateApartmentsTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('apartments', function(Blueprint $table) {
+		Schema::create('promotions', function(Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->string('slug');
+            $table->string('avatar')->nullable();
             $table->text('sumary')->nullable();
-            $table->string('avatar');
+            $table->text('content')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
             $table->integer('status')->default(1);
             $table->timestamps();
 		});
@@ -31,7 +34,7 @@ class CreateApartmentsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('apartments');
+		Schema::drop('promotions');
 	}
 
 }
