@@ -101,6 +101,7 @@
                                         <label>Meta Keywords:</label>
                                         <textarea class="form-control" name="meta_keywords" rows="4" cols="4" >{{old('meta_keywords',isset($promotion) ? $promotion->meta_keywords : '')}}</textarea>
                                     </div>
+                                    
                                     <div class="form-group">
                                         <label class="display-block">Status:</label>
 
