@@ -10,6 +10,6 @@ class Apartment extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = ['title','slug','avatar','sumary','status'];
 
 }

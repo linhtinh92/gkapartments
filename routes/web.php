@@ -71,6 +71,15 @@ Route::group(['domain' => $subdomain, 'namespace' => 'Backend',], function ($rou
         $r->PUT ( '{id}/edit', [ 'namespace' => 'Backend', 'as' => 'admin.abouts.update', 'uses' => 'AboutsController@update' ] );
     } );
 
+    $router->group ( [ 'prefix' => '/apartments','middleware' => ['admin']], function ( $r ){
+        $r->get ( 'apartment', [ 'namespace' => 'Backend', 'as' => 'admin.apartments.index', 'uses' => 'ApartmentsController@index' ] );
+        $r->get ( 'create', [ 'namespace' => 'Backend', 'as' => 'admin.apartments.create', 'uses' => 'ApartmentsController@create' ] );
+        $r->post ( 'create', [ 'namespace' => 'Backend', 'as' => 'admin.apartments.store', 'uses' => 'ApartmentsController@store' ] );
+        $r->get ( 'delete/{id}', [ 'namespace' => 'Backend', 'as' => 'admin.apartments.destroy', 'uses' => 'ApartmentsController@destroy' ] );
+        $r->get ( '{id}/edit', [ 'namespace' => 'Backend', 'as' => 'admin.apartments.edit', 'uses' => 'ApartmentsController@edit' ] );
+        $r->PUT ( '{id}/edit', [ 'namespace' => 'Backend', 'as' => 'admin.apartments.update', 'uses' => 'ApartmentsController@update' ] );
+    } );
+
     $router->group ( [ 'prefix' => '/promotions','middleware' => ['admin']], function ( $r ){
         $r->get ( 'promotion', [ 'namespace' => 'Backend', 'as' => 'admin.promotions.index', 'uses' => 'PromotionsController@index' ] );
         $r->get ( 'create', [ 'namespace' => 'Backend', 'as' => 'admin.promotions.create', 'uses' => 'PromotionsController@create' ] );

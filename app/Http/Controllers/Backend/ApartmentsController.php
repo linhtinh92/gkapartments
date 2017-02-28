@@ -77,8 +77,14 @@ class ApartmentsController extends Controller
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
-
-            $apartment = $this->repository->create($request->all());
+            $data = $request->all();
+            $data['slug'] = str_slug($data['title']);
+            if ($request->hasFile('avatar')) {
+                $filename = rand(111, 999) . '-' . $request->file('avatar')->getClientOriginalName();
+                $request->file('avatar')->move(public_path() . '/upload/images/', $filename);
+                $data['avatar'] = 'public/upload/images/' . $filename;
+            }
+            $apartment = $this->repository->create($data);
 
             $response = [
                 'message' => 'Apartment created.',
@@ -154,8 +160,16 @@ class ApartmentsController extends Controller
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
-
-            $apartment = $this->repository->update($request->all(),$id);
+            $data = $request->all();
+            $data['slug'] = str_slug($data['title']);
+            if ($request->hasFile('avatar')) {
+                $filename = rand(111, 999) . '-' . $request->file('avatar')->getClientOriginalName();
+                $request->file('avatar')->move(public_path() . '/upload/images/', $filename);
+                $data['avatar'] = '/public/upload/images/' . $filename;
+                \File::delete(url($data['temp_images']));
+                unset($data['temp_images']);
+            }
+            $apartment = $this->repository->update($data,$id);
 
             $response = [
                 'message' => 'Apartment updated.',
