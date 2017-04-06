@@ -28,16 +28,16 @@
                     <li><a href="{{route('admin.sliders.create')}}">Create Slider</a></li>
                 </ul>
             </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-blogger position-left"></i> Blog<span class="caret"></span>
-                </a>
+            {{--<li class="dropdown">--}}
+                {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+                    {{--<i class="icon-blogger position-left"></i> Blog<span class="caret"></span>--}}
+                {{--</a>--}}
 
-                <ul class="dropdown-menu width-250">
-                    <li><a href="{{route('admin.blogs.index')}}">List Blog</a></li>
-                    <li><a href="{{route('admin.blogs.create')}}">Create Blog</a></li>
-                </ul>
-            </li>
+                {{--<ul class="dropdown-menu width-250">--}}
+                    {{--<li><a href="{{route('admin.blogs.index')}}">List Blog</a></li>--}}
+                    {{--<li><a href="{{route('admin.blogs.create')}}">Create Blog</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="icon-file-media position-left"></i> About Us<span class="caret"></span>
@@ -58,36 +58,46 @@
                     <li><a href="{{route('admin.promotions.create')}}">Create Promotion</a></li>
                 </ul>
             </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-map position-left"></i>Apartment<span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu width-250">
+                    <li><a href="{{route('admin.apartments.index')}}">List Apartment</a></li>
+                    <li><a href="{{route('admin.apartments.create')}}">Create Apartment</a></li>
+                </ul>
+            </li>
             <li>
                 <a href="{{route('admin.contacts.index')}}">
                     <i class="icon-envelope position-left"></i> Contact Us
                 </a>
             </li>
-            <li>
-                <a href="{{route('admin.checkouts.index')}}">
-                    <i class="icon-cart2 position-left"></i> Checkout Cart
-                </a>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-list-ordered position-left"></i>Product Category<span class="caret"></span>
-                </a>
+            {{--<li>--}}
+                {{--<a href="{{route('admin.checkouts.index')}}">--}}
+                    {{--<i class="icon-cart2 position-left"></i> Checkout Cart--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="dropdown">--}}
+                {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+                    {{--<i class="icon-list-ordered position-left"></i>Product Category<span class="caret"></span>--}}
+                {{--</a>--}}
 
-                <ul class="dropdown-menu width-250">
-                    <li><a href="{{route('admin.categories.index')}}">List Product Category</a></li>
-                    <li><a href="{{route('admin.categories.create')}}">Create Product Category</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-grid3 position-left"></i>Products<span class="caret"></span>
-                </a>
+                {{--<ul class="dropdown-menu width-250">--}}
+                    {{--<li><a href="{{route('admin.categories.index')}}">List Product Category</a></li>--}}
+                    {{--<li><a href="{{route('admin.categories.create')}}">Create Product Category</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
+            {{--<li class="dropdown">--}}
+                {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+                    {{--<i class="icon-grid3 position-left"></i>Products<span class="caret"></span>--}}
+                {{--</a>--}}
 
-                <ul class="dropdown-menu width-250">
-                    <li><a href="{{route('admin.products.index')}}">List Products</a></li>
-                    <li><a href="{{route('admin.products.create')}}">Create Products</a></li>
-                </ul>
-            </li>
+                {{--<ul class="dropdown-menu width-250">--}}
+                    {{--<li><a href="{{route('admin.products.index')}}">List Products</a></li>--}}
+                    {{--<li><a href="{{route('admin.products.create')}}">Create Products</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
             <li class="dropdown">
                 <a href="{{route('admin.configs.index')}}">
                     <i class="icon-cog4 position-left"></i> Configs
