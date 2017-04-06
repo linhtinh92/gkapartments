@@ -15,6 +15,8 @@ class CreateRoomTypesTable extends Migration
     {
         Schema::create('room_types', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('apartment_id')->unsigned();
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
             $table->string('title');
             $table->string('slug');
             $table->text('sumary')->nullable();

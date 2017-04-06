@@ -12,6 +12,7 @@ use App\Http\Requests\RoomTypeCreateRequest;
 use App\Http\Requests\RoomTypeUpdateRequest;
 use Flash;
 use App\Repositories\RoomTypeRepository;
+use App\Repositories\RoomTypeImgRepository;
 use App\Validators\RoomTypeValidator;
 
 
@@ -28,10 +29,11 @@ class RoomTypesController extends Controller
      */
     protected $validator;
 
-    public function __construct(RoomTypeRepository $repository, RoomTypeValidator $validator)
+    public function __construct(RoomTypeRepository $repository, RoomTypeValidator $validator, RoomTypeImgRepository $roomTypeImgRepository)
     {
         $this->repository = $repository;
-        $this->validator  = $validator;
+        $this->validator = $validator;
+        $this->roomTypeImgRepository = $roomTypeImgRepository;
     }
 
 
@@ -52,18 +54,21 @@ class RoomTypesController extends Controller
             ]);
         }
         $title = 'List  RoomType';
-        return view('backend.roomTypes.index', compact('roomTypes','title'));
+        return view('backend.roomTypes.index', compact('roomTypes', 'title'));
     }
-        /**
-         * Show the form for create the specified resource.
-         *
-         * @return \Illuminate\Http\Response
-         */
+
+    /**
+     * Show the form for create the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
         $title = 'Create A  RoomType';
+
         return view('backend.roomTypes.create', compact('title'));
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -75,14 +80,29 @@ class RoomTypesController extends Controller
     {
 
         try {
-
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_CREATE);
-
-            $roomType = $this->repository->create($request->all());
-
+            $params = [
+                'apartment_id' => $request->apartment_id,
+                'title' => $request->title,
+                'slug' => str_slug($request->title),
+                'area' => $request->area,
+                'price' => $request->price,
+                'video' => $request->video,
+                'sumary' => $request->sumary,
+                'pay' => $request->pay,
+                'excludes' => $request->excludes,
+                'includes' => $request->includes,
+                'meta_keywords' => $request->meta_keywords,
+                'meta_keywords' => $request->meta_keywords,
+                'status' => $request->status
+            ];
+            $roomType = $this->repository->create($params);
+            if($roomType){
+                $data = convertArray($request->all());
+            }
             $response = [
                 'message' => 'RoomType created.',
-                'data'    => $roomType->toArray(),
+                'data' => $roomType->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -94,7 +114,7 @@ class RoomTypesController extends Controller
         } catch (ValidatorException $e) {
             if ($request->wantsJson()) {
                 return response()->json([
-                    'error'   => true,
+                    'error' => true,
                     'message' => $e->getMessageBag()
                 ]);
             }
@@ -136,7 +156,7 @@ class RoomTypesController extends Controller
 
         $roomType = $this->repository->find($id);
         $title = 'Edit A RoomType';
-        return view('backend.roomTypes.edit', compact('roomType','title'));
+        return view('backend.roomTypes.edit', compact('roomType', 'title'));
     }
 
 
@@ -144,7 +164,7 @@ class RoomTypesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  RoomTypeUpdateRequest $request
-     * @param  string            $id
+     * @param  string $id
      *
      * @return Response
      */
@@ -155,11 +175,11 @@ class RoomTypesController extends Controller
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $roomType = $this->repository->update($request->all(),$id);
+            $roomType = $this->repository->update($request->all(), $id);
 
             $response = [
                 'message' => 'RoomType updated.',
-                'data'    => $roomType->toArray(),
+                'data' => $roomType->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -173,7 +193,7 @@ class RoomTypesController extends Controller
             if ($request->wantsJson()) {
 
                 return response()->json([
-                    'error'   => true,
+                    'error' => true,
                     'message' => $e->getMessageBag()
                 ]);
             }

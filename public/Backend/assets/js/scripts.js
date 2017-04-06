@@ -2,7 +2,6 @@
  * Created by LINH NGUYEN on 12/12/2016.
  */
 $(document).ready(function () {
-
     $('div.alert').not('.alert-important').delay(3000).fadeOut(350);
     $('#fileinput_remove_a').click(function () {
         $(this).parents('.file-preview').remove();
@@ -44,7 +43,7 @@ function loadDataImg(object) {
                     if (item.selector == 'img') {
                         items += '<div class="box-image"><a onclick="uploadMulti(this)" >';
                         items += "<" + item.selector + " src='" + values.value + "' name='" + item.name + "' class='img-responsive' id='show_img_mul' />";
-                        items += '<input type="hidden" name="' + item.name + '" value="'+values.value+'" class="input-file hidden"></a>';
+                        items += '<input type="hidden" name="' + item.name + '" value="' + values.value + '" class="input-file hidden"></a>';
                         items += '</div>';
                     } else {
                         items += "<" + item.selector + " type='" + item.type + "' value='" + cus_value + "'  name='" + item.name + "' class='form-control' placeholder='" + item.placeholder + "' />";
@@ -69,12 +68,12 @@ function loadDataText(object) {
                     if (item.selector == 'img') {
                         items += '<div class="box-image"><a onclick="uploadMulti(this)" >';
                         items += "<" + item.selector + " src='" + values.value + "' name='" + item.name + "' class='img-responsive' id='show_img_mul' />";
-                        items += '<input type="hidden" name="' + item.name + '" value="'+values.value+'" class="input-file hidden"></a>';
+                        items += '<input type="hidden" name="' + item.name + '" value="' + values.value + '" class="input-file hidden"></a>';
                         items += '</div>';
                     } else {
-                        if(item.name == "meta_value[]"){
-                            items += "<" + item.selector + " type='" + item.type + "' value='" +values.value+ "'  name='" + item.name + "' class='form-control' placeholder='" + item.placeholder + "' />";
-                        }else{
+                        if (item.name == "meta_value[]") {
+                            items += "<" + item.selector + " type='" + item.type + "' value='" + values.value + "'  name='" + item.name + "' class='form-control' placeholder='" + item.placeholder + "' />";
+                        } else {
                             items += "<" + item.selector + " type='" + item.type + "' value='" + cus_value + "'  name='" + item.name + "' class='form-control' placeholder='" + item.placeholder + "' />";
                         }
 
@@ -110,7 +109,7 @@ function callAjaxGet(url) {
         dataType: 'json',
         success: function (data) {
             $("#box_conent_modal").html(data.html);
-            $("#"+data.element).modal('show');
+            $("#" + data.element).modal('show');
         }
     });
 }

@@ -82,6 +82,21 @@
         Kopyov</a>
 </div>
 <!-- /footer -->
+<script>
+    $(".btn-clone-img").click(function () {
+        var count = $(".box-mul-img").find('.form-group').length;
+        var cloned = $(".box-mul-img .form-group:last").clone();
+        cloned.find("input:text").val("");
+        cloned.find('input').each(function () {
+            var name = $(this).attr('name');
+            name = name.replace(/\[(\d+)\]/, '[' + parseInt(count) + ']');
+            $(this)
+                .attr('name', name)
+                .attr('readonly', false);
 
+        });
+        cloned.insertBefore($(this)).show();
+    });
+</script>
 </body>
 </html>

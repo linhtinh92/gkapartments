@@ -9,7 +9,10 @@ class RoomTypeValidator extends LaravelValidator
 {
 
     protected $rules = [
-        ValidatorInterface::RULE_CREATE => [],
+        ValidatorInterface::RULE_CREATE => [
+            'title'=>'required',
+            'apartment_id'=>'required'
+        ],
         ValidatorInterface::RULE_UPDATE => [],
    ];
 }

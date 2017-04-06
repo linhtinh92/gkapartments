@@ -133,6 +133,15 @@ Route::group(['domain' => $subdomain, 'namespace' => 'Backend',], function ($rou
         $r->get ( '{id}/edit', [ 'namespace' => 'Backend', 'as' => 'admin.locations.edit', 'uses' => 'LocationsController@edit' ] );
         $r->PUT ( '{id}/edit', [ 'namespace' => 'Backend', 'as' => 'admin.locations.update', 'uses' => 'LocationsController@update' ] );
     } );
+
+    $router->group ( [ 'prefix' => '/roomTypes','middleware' => ['admin']], function ( $r ){
+        $r->get ( 'roomType', [ 'namespace' => 'Backend', 'as' => 'admin.roomTypes.index', 'uses' => 'RoomTypesController@index' ] );
+        $r->get ( 'create', [ 'namespace' => 'Backend', 'as' => 'admin.roomTypes.create', 'uses' => 'RoomTypesController@create' ] );
+        $r->post ( 'create', [ 'namespace' => 'Backend', 'as' => 'admin.roomTypes.store', 'uses' => 'RoomTypesController@store' ] );
+        $r->get ( 'delete/{id}', [ 'namespace' => 'Backend', 'as' => 'admin.roomTypes.destroy', 'uses' => 'RoomTypesController@destroy' ] );
+        $r->get ( '{id}/edit', [ 'namespace' => 'Backend', 'as' => 'admin.roomTypes.edit', 'uses' => 'RoomTypesController@edit' ] );
+        $r->PUT ( '{id}/edit', [ 'namespace' => 'Backend', 'as' => 'admin.roomTypes.update', 'uses' => 'RoomTypesController@update' ] );
+    } );
     
     $router->group ( [ 'prefix' => '/configs','middleware' => ['admin']], function ( $r ){
         $r->get ( 'config', [ 'namespace' => 'Backend', 'as' => 'admin.configs.index', 'uses' => 'ConfigsController@index' ] );

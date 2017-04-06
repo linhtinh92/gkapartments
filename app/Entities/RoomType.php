@@ -10,6 +10,18 @@ class RoomType extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = ['apartment_id'
+        ,'title'
+        ,'slug'
+        ,'sumary'
+        ,'area'
+        ,'price'
+        ,'video'
+        ,'pay'
+        ,'excludes'
+        ,'includes'
+        ,'meta_description'
+        ,'meta_keywords'
+        ,'status'];
 
 }

@@ -4,7 +4,7 @@ namespace App\Repositories\Eloquent;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Repositories\Room_typeRepository;
+use App\Repositories\RoomTypeRepository;
 use App\Entities\RoomType;
 use App\Validators\RoomTypeValidator;
 

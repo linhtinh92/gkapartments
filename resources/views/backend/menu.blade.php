@@ -68,6 +68,16 @@
                     <li><a href="{{route('admin.apartments.create')}}">Create Apartment</a></li>
                 </ul>
             </li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-map position-left"></i>Room Type<span class="caret"></span>
+                </a>
+
+                <ul class="dropdown-menu width-250">
+                    <li><a href="{{route('admin.roomTypes.index')}}">List Room Type</a></li>
+                    <li><a href="{{route('admin.roomTypes.create')}}">Create Room Type</a></li>
+                </ul>
+            </li>
             <li>
                 <a href="{{route('admin.contacts.index')}}">
                     <i class="icon-envelope position-left"></i> Contact Us

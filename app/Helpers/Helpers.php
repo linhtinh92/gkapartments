@@ -81,6 +81,25 @@ if (!function_exists('convertData')) {
         return $array;
     }
 }
+if (!function_exists('convertArray')) {
+    function convertArray($array)
+    {
+        $arr = [];
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                foreach ($value as $k => $v) {
+                    if (is_array($v) && $v[0] != "") {
+                        $arr[$k][$key] = $v[0];
+                    }
+
+                }
+            }
+        }
+        return $arr;
+    }
+}
+
+
 if (!function_exists('validationEmail')) {
     function validationEmail($email)
     {
@@ -107,7 +126,8 @@ if (!function_exists('_sendEmail')) {
     }
 }
 if (!function_exists('generateRandomString')) {
-    function generateRandomString($length = 10) {
+    function generateRandomString($length = 10)
+    {
         $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
