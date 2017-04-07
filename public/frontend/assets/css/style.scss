@@ -2,14 +2,16 @@
 
 /* VARIABLES */
 $header-bg: #3f51b5;
-$menu-width: 320px!default;
+$menu-width: 280px !default;
 $color-active: #f5efad;
 
 @mixin roboto {
   font-family: 'Roboto', sans-serif;
 }
 
-.dis-inline-block { display: inline-block  }
+.dis-inline-block {
+  display: inline-block;
+}
 
 a {
   text-decoration: none;
@@ -33,28 +35,44 @@ body {
   position: relative;
   height: auto;
   font-size: 16px;
+  &.with--sidebar{
+    overflow: hidden;
+  }
+  .master-content {
+    overflow: hidden;
+    @media (min-width: 769px) {
+      margin-top: 124px;
+    }
+  }
+  &.is-home {
+    .master-content {
+      margin-top: 0px;
+    }
+  }
+  @media (max-width: 1170px) {
+    .container {
+      width: 100%;
+      padding: 0 15px;
+    }
+  }
 }
 
 .site-content {
   padding-top: 66px;
 }
-.is-home {
-  header.header {
-    position: fixed;
-  }
-  footer.footer {
-    background-color: rgba(77,42,5,0.5);
-  }
-}
+
 header.header {
   background-color: rgba(77, 42, 5, 0.85);
-  position: static;
+  position: fixed;
   left: 0;
   right: 0;
+  top: 0;
   color: #fff;
   padding: 10px 0;
-  z-index: 3;
+  z-index: 99;
   nav.menu {
+    -webkit-transition: all .4s; /* Safari */
+    transition: all .4s;
     float: left;
     padding-top: 40px;
     ul {
@@ -67,7 +85,7 @@ header.header {
           color: #fff;
           font-size: 24px;
           @include roboto();
-          padding: 30px;
+          padding: 0 30px;
           text-decoration: none;
           &:hover, &:focus, &.active {
             color: $color-active;
@@ -79,6 +97,28 @@ header.header {
           right: 0;
           top: 50%;
           transform: translateY(-50%);
+        }
+        &:after {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          content: "";
+          width: 0;
+          height: 2px;
+          background-color: #FFF;
+          transition: all 0.5s;
+        }
+        @media (min-width: 769px) {
+          &:hover {
+            &:after {
+              width: 100%;
+              left: 0;
+              right: 0;
+              margin: 0 auto;
+            }
+          }
         }
         &:first-child {
           a {
@@ -94,6 +134,27 @@ header.header {
           }
         }
 
+      }
+    }
+  }
+  .logo {
+    img {
+      -webkit-transition: all .4s; /* Safari */
+      transition: all .4s;
+    }
+  }
+  -webkit-transition: all .4s; /* Safari */
+  transition: all .4s;
+  @media (min-width: 769px) {
+    &.scroll {
+      height: 75px;
+      nav.menu {
+        padding-top: 10px;
+      }
+      .logo {
+        img {
+          width: 70px;
+        }
       }
     }
   }
@@ -126,18 +187,23 @@ footer.footer {
 
 .banner-home-page {
   position: relative;
-  .description-banner {
-    background-color: rgba(255,255,255,0.7);
-    font-size: 42px;
-    @include roboto;
-    font-style: italic;
-    position: absolute;
-    top: calc(50% + 110px);
-    left: 50%;
-    transform: translate(-50%,-60%);
-    text-align: center;
-    padding: 50px;
-    color: #603400;
+  .nivoSlider {
+    .nivo-caption {
+      background-color: rgba(255, 255, 255, 0.7);
+      font-size: 42px;
+      @include roboto;
+      font-style: italic;
+      position: absolute;
+      top: calc(50% + 110px);
+      left: 50%;
+      transform: translate(-50%, -60%);
+      text-align: center;
+      padding: 50px;
+      color: #603400;
+      width: auto;
+      bottom: auto;
+      opacity: 1;
+    }
   }
 }
 
@@ -161,7 +227,7 @@ footer.footer {
         border-top: 1px solid #5f3300;
         border-bottom: 1px solid #5f3300;
         position: absolute;
-        top:50%;
+        top: 50%;
         left: 0;
         z-index: 1;
         transform: translateY(-50%);
@@ -178,7 +244,7 @@ footer.footer {
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         margin: 0;
       }
     }
@@ -195,13 +261,23 @@ footer.footer {
 .sample-design-gkhome {
   padding: 0;
   position: relative;
+  overflow: hidden;
+  img {
+    width: 100%;
+    transition: all .5s;
+    &:hover {
+      -ms-transform: scale(1.3); /* IE 9 */
+      -webkit-transform: scale(1.3); /* Safari */
+      transform: scale(1.3); /* Standard syntax */
+    }
+  }
   .title-sample-design-gkhome {
     @include roboto;
     font-size: 48px;
     color: #634417;
     text-align: center;
     width: 100%;
-    background-color: rgba(255,255,255,0.7);
+    background-color: rgba(255, 255, 255, 0.7);
     position: absolute;
     left: 0;
     bottom: 0;
@@ -209,6 +285,7 @@ footer.footer {
     text-transform: uppercase;
   }
 }
+
 .sample-promotions-gkhome {
   padding: 0;
   position: relative;
@@ -218,7 +295,7 @@ footer.footer {
     color: #634417;
     text-align: center;
     width: 100%;
-    background-color: rgba(255,255,255,0.7);
+    background-color: rgba(255, 255, 255, 0.7);
     height: 80px;
     line-height: 80px;
     position: absolute;
@@ -267,7 +344,7 @@ footer.footer {
   }
 }
 
-.main-apartment{
+.main-apartment {
   padding: 25px 0;
   .box-img-current-apartment {
     width: 100%;
@@ -313,7 +390,7 @@ footer.footer {
         position: absolute;
         left: 0;
         bottom: 0;
-        background-color: rgba(255,255,255,0.7);
+        background-color: rgba(255, 255, 255, 0.7);
         font-size: 30px;
         text-transform: uppercase;
         height: 0;
@@ -457,7 +534,7 @@ footer.footer {
               font-family: FontAwesome;
               margin-right: 5px;
               position: absolute;
-              top:0;
+              top: 0;
               left: 0;
             }
           }
@@ -474,7 +551,7 @@ footer.footer {
               font-family: FontAwesome;
               margin-right: 5px;
               position: absolute;
-              top:0;
+              top: 0;
               left: 0;
             }
           }
@@ -506,7 +583,7 @@ footer.footer {
           font-size: 16px;
           font-weight: 700;
         }
-        input,textarea {
+        input, textarea {
           width: 100%;
         }
         .form-group {
@@ -636,12 +713,13 @@ footer.footer {
     margin: 30px 0;
   }
 }
+
 .form-contact {
   .title-contact {
     color: #826243;
     text-transform: uppercase;
     font-size: 18px;
-    @include  roboto;
+    @include roboto;
     font-weight: 700;
     margin-bottom: 15px;
   }
@@ -701,6 +779,7 @@ footer.footer {
     }
   }
 }
+
 @media (max-width: 1023px) {
   .maps-company {
     > iframe {
@@ -708,6 +787,7 @@ footer.footer {
     }
   }
 }
+
 @media (max-width: 991px) {
   header.header {
     nav.menu {
@@ -763,6 +843,7 @@ footer.footer {
     margin-bottom: 30px;
   }
 }
+
 @media (max-width: 768px) {
   /*.site-pusher, .main-container {
     height: 100%;
@@ -773,7 +854,7 @@ footer.footer {
     -o-transition-duration: 0.3s;
     -ms-transition-duration: 0.3s;
     transition-duration: 0.3s;
-    transform:translateX(0px);
+    transform: translateX(0px);
   }
 
   .site-content {
@@ -832,7 +913,7 @@ footer.footer {
       background-color: #a69482;
       width: $menu-width;
       height: 600px;
-      transform : translateX($menu-width * -1);
+      transform: translateX($menu-width * -1);
       margin-top: -90px;
       ul {
         padding-top: 0;
@@ -875,13 +956,13 @@ footer.footer {
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0, 0, 0, 0.6);
     }
   }
   .banner-home-page {
     .description-banner {
-      top:50%;
-      transform: translate(-50%,-50%);
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
   .sample-promotions-gkhome, .sample-design-gkhome {
@@ -971,4 +1052,4 @@ footer.footer {
       }
     }
   }
-  }
+}

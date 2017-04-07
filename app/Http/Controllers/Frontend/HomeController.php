@@ -74,35 +74,21 @@ class HomeController extends BaseFrontController
      */
     public function index()
     {
+        $class = "is-home";
         $sliders = $this->sliderRepository->findWhere(array('status' => 1));
-
-        $product_featured = $this->productRepository->findWhere(array('status' => 1, 'featured_product' => 1))->toArray();
-
-        $product_new = $this->productRepository->findWhere(array('status' => 1, 'new_product' => 1))->toArray();
-
-        $product_bestseller = $this->productRepository->findWhere(array('status' => 1, 'bestseller_product' => 1));
-
-        $blogs = $this->blogRepository->findWhere(array('status' => 1));
-
-        $brands = $this->brandLogoRepository->findWhere(array('status' => 1));
-
         return view('frontend.home.index', array('sliders' => $sliders,
-            'product_featured' => array_chunk($product_featured, 2),
-            'product_new' => array_chunk($product_new, 2),
-            'product_bestseller' => $product_bestseller,
-            'blogs' => $blogs,
-            'brands' => $brands));
+            'class' => $class));
     }
 
 
     public function aboutUs()
     {
-        return view('frontend.contact.index', array('meta_title' => "Liên Hệ",));
+        return view('frontend.aboutus.index', array('meta_title' => "About Us",));
     }
 
     public function contact()
     {
-        return view('frontend.contact.index', array('meta_title' => "Liên Hệ",));
+        return view('frontend.contact.index', array('meta_title' => "Contact us",));
     }
 
     public function postContact(Request $request)

@@ -17,13 +17,19 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="{{url('frontend/assets/fonts/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('frontend/assets/fonts/bootstrap/css/bootstrap-theme.min.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/css/animate.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/css/nivo-slider.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/css/owl.carousel.css')}}">
+    <link rel="stylesheet" href="{{url('frontend/assets/css/owl.theme.css')}}">
     <link rel="stylesheet" href="{{url('frontend/assets/css/style.css')}}">
 </head>
-<body>
-<div class="main-container">
-@include('frontend.header')
-@yield('content')
-@include('frontend.footer')
+<body class="{{isset($class) && $class =='is-home' ?'is-home':''}}">
+<div class="master-content">
+    <div class="main-container">
+        @include('frontend.header')
+        @yield('content')
+        @include('frontend.footer')
+    </div>
 </div>
 </body>
 </html>
