@@ -94,95 +94,15 @@ class HomeController extends BaseFrontController
             'brands' => $brands));
     }
 
-    /**
-     * @param $slug
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
 
-    public function category($slug)
+    public function aboutUs()
     {
-        $category = $this->categoryRepository->findByField('slug', $slug)->first();
-
-        if ($category) {
-            $arr_category = $this->categoryRepository->getArrCateId($category->id, ['0' => $category->id]);
-            $products = $this->productRepository->getProductByCatetegoryPaginate($arr_category, $this->request);
-
-            $brands = $this->brandLogoRepository->findWhere(array('status' => 1));
-
-            $all_category = $this->categoryRepository->all();
-
-            $default_sort = $this->request != null ? strip_tags($this->request->sort) : null;
-            $default_order = $this->request != null ? strip_tags($this->request->order) : null;
-
-            if ($default_order != null && $default_sort != null) {
-                $products->setPath(route('web.category', $category->slug) . '?sort=' . $default_sort . '&order=' . $default_order);
-            }
-            return view('frontend.product.productcate',
-                array('brands' => $brands,
-                    'products' => $products,
-                    'category' => $category,
-                    'all_category' => $all_category,
-                    'meta_title' => $category->title,
-                    'meta_description' => $category->site_description,
-                    'meta_keyword' => $category->site_keyword,
-                    'default_sort' => $default_sort,
-                    'default_order' => $default_order));
-        } else {
-            return view('errors.404');
-        }
-    }
-
-    public function productDetail($slug)
-    {
-        $product = $this->productRepository->findByField('slug', $slug)->first();
-        $brands = $this->brandLogoRepository->findWhere(array('status' => 1));
-
-        if ($product) {
-            $relatedProduct = $this->productRepository->getRelatedProduct($product->cate_id, $product->id);
-            return view('frontend.product.productdetail',
-                array(
-                    'product' => $product,
-                    'brands' => $brands,
-                    'relatedProduct' => array_chunk($relatedProduct, 4),
-                    'meta_title' => $product->title,
-                    'meta_description' => $product->site_description,
-                    'meta_keyword' => $product->site_keyword,));
-        } else {
-            return view('errors.404');
-        }
-
+        return view('frontend.contact.index', array('meta_title' => "Liên Hệ",));
     }
 
     public function contact()
     {
         return view('frontend.contact.index', array('meta_title' => "Liên Hệ",));
-    }
-
-    public function timKiem()
-    {
-        $search = $this->request != null ? strip_tags($this->request->k) : null;
-        if ($search == null) {
-            return redirect()->back();
-        } else {
-            $all_category = $this->categoryRepository->all();
-
-            $products = $this->productRepository->getProductSearch($search, $this->request);
-            $products->setPath(route('web.timKiem') . '?k=' . $search);
-
-
-            $default_sort = $this->request != null ? strip_tags($this->request->sort) : null;
-            $default_order = $this->request != null ? strip_tags($this->request->order) : null;
-            $brands = $this->brandLogoRepository->findWhere(array('status' => 1));
-
-            return view('frontend.search.index',
-                array('brands' => $brands,
-                    'products' => $products,
-                    'all_category' => $all_category,
-                    'meta_title' => $search,
-                    'search' => $search,
-                    'default_sort' => $default_sort,
-                    'default_order' => $default_order));
-        }
     }
 
     public function postContact(Request $request)

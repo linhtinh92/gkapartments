@@ -56,8 +56,8 @@
                     <table class="table" id="myTable">
                         <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Title</th>
-                            <th>Avatar</th>
                             <th>Sumary</th>
                             <th>Status</th>
                             <th class="text-center">Actions</th>
@@ -66,10 +66,8 @@
                         <tbody>
                         @foreach($roomTypes as $roomType)
                             <tr>
+                                <td>{{$roomType->id or ""}}</td>
                                 <td>{{$roomType->title or ""}}</td>
-								<td>
-                                    <img src="{{url($roomType->avatar)}}" width="100px">
-                                </td>
                                 <td>{{$roomType->sumary or ""}}</td>
                                 <td>
                                     @if($roomType->status == 1)

@@ -12,7 +12,8 @@ use App\Http\Requests\RoomTypeCreateRequest;
 use App\Http\Requests\RoomTypeUpdateRequest;
 use Flash;
 use App\Repositories\RoomTypeRepository;
-use App\Repositories\RoomTypeImgRepository;
+use App\Repositories\RoomImageRepository;
+use App\Repositories\ApartmentRepository;
 use App\Validators\RoomTypeValidator;
 
 
@@ -29,11 +30,15 @@ class RoomTypesController extends Controller
      */
     protected $validator;
 
-    public function __construct(RoomTypeRepository $repository, RoomTypeValidator $validator, RoomTypeImgRepository $roomTypeImgRepository)
+    public function __construct(RoomTypeRepository $repository, 
+        RoomTypeValidator $validator, 
+        RoomImageRepository $roomImageRepository,
+        ApartmentRepository $apartmentRepository)
     {
         $this->repository = $repository;
         $this->validator = $validator;
-        $this->roomTypeImgRepository = $roomTypeImgRepository;
+        $this->roomImageRepository = $roomImageRepository;
+        $this->roomTypeImgRepository = $apartmentRepository;
     }
 
 
@@ -65,8 +70,8 @@ class RoomTypesController extends Controller
     public function create()
     {
         $title = 'Create A  RoomType';
-
-        return view('backend.roomTypes.create', compact('title'));
+        $apartments = $this->roomTypeImgRepository->all();
+        return view('backend.roomTypes.create', compact('title','apartments'));
     }
 
     /**
@@ -98,7 +103,19 @@ class RoomTypesController extends Controller
             ];
             $roomType = $this->repository->create($params);
             if($roomType){
-                $data = convertArray($request->all());
+                $datas = convertArray($request->all());
+                foreach ($datas as $data) {
+                    $file = $data['images'];
+                    $p['room_type_id'] = $roomType->id;
+                    $p['title'] = $data['tilte_img'];
+                    if($file){
+                        $filename = rand(111, 999) . '-' .$file->getClientOriginalName();
+                        $file->move(public_path() . '/upload/images/', $filename);
+                        $p['images'] = 'public/upload/images/' . $filename;
+                    }
+                    $this->roomImageRepository->create($p);
+                }
+
             }
             $response = [
                 'message' => 'RoomType created.',

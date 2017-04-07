@@ -1,128 +1,86 @@
 @extends('frontend.master')
 @section('content')
-    <!-- mobile-menu-area end -->
-    <div class="top-contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="breadcrumb">
-                        <li class="p-none">
-                            <a href="{{route('web.index')}}">
-                                <i class="fa fa-home"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="current" href="{{route('web.contact')}}">Liên Hệ</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <section class="top-map-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="map-area">
-                        <div class="contact-map">
-                            <div id="hastech">
-                            </div>
+    <div class="box-main-content">
+            <div class="main-about-us">
+                <div class="title-about-us">Contact us</div>
+                <div class="infor-main-content">
+                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                        <div class="infor-company">
+                            <p>
+                                <strong>GK Home</strong>
+                            </p>
+                            <p>
+                                <strong>Address: </strong>28 Nguyen Van Cu, Cau Kho Ward, Dist 1, Ho Chi Minh City
+                            </p>
+                            <p>
+                                <strong>Email: </strong>sales@gkhome.com.vn
+                            </p>
+                            <p>
+                                <strong>Tel: </strong>(08) 392 090 25
+                            </p>
+                            <p>
+                                <strong>HP: </strong>0906 837 828  for further information
+                            </p>
+                            <p>
+                                <strong>Website: </strong>www.gkhome.com.vn
+                            </p>
+                        </div>
+                        <div class="maps-company">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.7254119362765!2d106.68382391390064!3d10.75563296252041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f0517233201%3A0x9a1a2d5402267026!2sGK-HOME+SERVICED+APARTMENT!5e0!3m2!1svi!2s!4v1491500204054" width="550" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div>
-                                <h3>Địa chỉ của chúng tôi</h3>
-                            </div>
-                            <div class="panel-body">
-                                <ul class="info-contact">
-                                    <li><h1>{!! $frontEndConfig['company_name'] or '' !!}</h1></li>
-                                    <li>
-                                        <strong>Địa Chỉ</strong>: {!! $frontEndConfig['address'] or '' !!}
-                                    </li>
-                                    <li>
-                                        <strong>Điện Thoại :</strong>
-                                        {!! $frontEndConfig['phone_number'] or '' !!}
-                                    </li>
-                                    <li>
-                                        <strong>Email:</strong>
-                                        <a href="mailto:{!! $frontEndConfig['email_receives_feedback'] or '' !!}">
-                                            {!! $frontEndConfig['email_receives_feedback'] or '' !!}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-md-6 form-contact">
-                            <h3>&nbsp;</h3>
-                            <form class="cendo" method="post" id="form_contact" action="{{route('web.postcontact')}}">
-                                {{csrf_field()}}
-                                @include('flash::message')
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Họ Tên</label>
-                                    <input type="text" class="form-control" id=""
-                                           placeholder="Họ Tên " required name="fullname">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Địa Chỉ</label>
-                                    <input type="text" class="form-control" id=""
-                                           placeholder="Địa chỉ" required name="address">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Email</label>
-                                    <input type="email" class="form-control" id=""
-                                           placeholder="Email" required name="email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Số Điện Thoại</label>
-                                    <input type="text" class="form-control" id=""
-                                           placeholder="Số Điện Thoại" name="phone">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Tin Nhắn</label>
-                                    <textarea class="form-control" rows="3" name="message"></textarea>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="buttons">
-                                        <div class="pull-right">
-                                            <input class="btn btn-primary" type="submit" value="Submit">
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                        <div class="col-xs-12 form-contact ">
+                            <div class="title-contact">Contact us</div>
+                            <div class="form-contact-us">
+                                <form action="">
+                                    <p>Fields marked with * are required</p>
+                                    <div class="form-group">
+                                        <div class="text-left">
+                                            <label for="name">Name *</label>
                                         </div>
+                                        <div class="width-input-textarea">
+                                            <input type="text" class="form-control" id="name">
+                                        </div>
+                                        <div class="clearfix"></div>
                                     </div>
-                                </div>
-                            </form>
+                                    <div class="form-group">
+                                        <div class="text-left">
+                                            <label for="email">Email *</label>
+                                        </div>
+                                        <div class="width-input-textarea">
+                                            <input type="email" class="form-control" id="email">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="text-left">
+                                            <label for="phone">Mobile</label>
+                                        </div>
+                                        <div class="width-input-textarea">
+                                            <input type="number" class="form-control" id="phone">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="text-left">
+                                            <label for="message">Message *</label>
+                                        </div>
+                                        <div class="width-input-textarea">
+                                            <textarea name="" id="message" cols="30" rows="5"></textarea>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn-reset btn btn-default pull-right">Reset</button>
+                                        <button type="submit" class="btn-send btn btn-default pull-right">Send</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- google map api
-		============================================ -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZdWwAbB1RF-iJYffDvb1nD6GAu5S6Jpg&callback=initMap"></script>
-    <script>
-        var myCenter = new google.maps.LatLng('{!! $frontEndConfig['longitude'] or '' !!}','{!! $frontEndConfig['latitude'] or '' !!}');
-        function initialize() {
-            var mapProp = {
-                center: myCenter,
-                scrollwheel: false,
-                zoom: 17,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            var map = new google.maps.Map(document.getElementById("hastech"), mapProp);
-            var marker = new google.maps.Marker({
-                position: myCenter,
-                animation: google.maps.Animation.BOUNCE,
-                icon: 'frontend/img/map-marker.png',
-                map: map,
-            });
-
-            marker.setMap(map);
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
 @stop

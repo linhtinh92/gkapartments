@@ -63,8 +63,11 @@
                                             <div class="form-group">
                                                 <label>Apartments:</label>
                                                 <select name="apartment_id" class="select"
-                                                        data-placeholder="Chọn người thực hiện" required>
-                                                    <option>ads</option>
+                                                        data-placeholder="Choese Apartments" required>
+                                                    <option></option>
+                                                    @foreach($apartments as $apartment)
+                                                    <option value="{{$apartment->id}}">{{$apartment->title}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>

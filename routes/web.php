@@ -152,18 +152,8 @@ Route::group(['domain' => $subdomain, 'namespace' => 'Backend',], function ($rou
 
 Route::group(['domain' => $domain, 'namespace' => 'Frontend',], function ($router) {
     $router->get('/',['as' => 'web.index', 'uses' => 'HomeController@index' ]);
-    $router->get('/danh-muc/{slug}',['as' => 'web.category', 'uses' => 'HomeController@category' ]);
-    $router->get('/lien-he',['as' => 'web.contact', 'uses' => 'HomeController@contact' ]);
-    $router->post('/lien-he',['as' => 'web.postcontact', 'uses' => 'HomeController@postContact' ]);
-    $router->get('/tim-kiem',['as' => 'web.timKiem', 'uses' => 'HomeController@timKiem' ]);
-    $router->get('/gio-hang',['as' => 'web.cart', 'uses' => 'CartController@gioHang' ]);
-    $router->get('/thanh-toan',['as' => 'web.checkout', 'uses' => 'CartController@thanhToan' ]);
-    $router->post('/thanh-toan',['as' => 'web.postCheckout', 'uses' => 'CartController@postCheckout' ]);
-    $router->get('/thanh-toan/thanh-cong',['as' => 'web.successCheckout', 'uses' => 'CartController@successCheckout' ]);
-    $router->post('/district',['as' => 'web.postDistrict', 'uses' => 'CartController@postDistrict' ]);
-    $router->post('/add-to-cart',['as' => 'web.addToCart', 'uses' => 'CartController@addToCart' ]);
-    $router->post('/remove-item-cart',['as' => 'web.removeItemCart', 'uses' => 'CartController@removeItemCart' ]);
-    $router->post('/update-item-cart',['as' => 'web.updateCart', 'uses' => 'CartController@updateCart' ]);
-    $router->get('/{slug}',['as' => 'web.productDetail', 'uses' => 'HomeController@productDetail' ]);
+    $router->get('/about-us',['as' => 'web.aboutus', 'uses' => 'HomeController@aboutUs' ]);
+    $router->get('/contact-us',['as' => 'web.contact', 'uses' => 'HomeController@contact' ]);
+    $router->post('/contact-us',['as' => 'web.postcontact', 'uses' => 'HomeController@postContact' ]);
 });
 

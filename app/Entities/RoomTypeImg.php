@@ -10,6 +10,6 @@ class RoomTypeImg extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = [];
+    protected $fillable = ['room_type_id','title','images'];
 
 }
